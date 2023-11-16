@@ -1,3 +1,15 @@
+/* Colors
+Fondo #F9F8F8
+MenuSelected #89023E
+NavBar #EAE6E5
+Fuente primaria #12130F*/
+
+/* Fuentes
+Principal font-family: 'DM Sans', sans-serif;
+Secundaria font-family: 'Playfair Display', serif;
+ */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -7,33 +19,34 @@ html {
     scroll-behavior: smooth;
 }
 
-nav {
-    background-color: black;
-    width: 100%;
-    height: 55px;
+body {
+    background-color: #F9F8F8;
+    color: #12130F;
+    font-family: 'DM Sans', sans-serif;
+}
+
+header .navBar {
+    display: none;
+}
+
+header .navBarMobile {
+    background-color: #EAE6E5;
     position: fixed;
-    padding-bottom: 20px;
-}
+    width: 100%;
+    top: 0;
+    height: 60px;
+    }
 
-
-
-.itemMenu {
-    display: none;
-}
-
-.itemMenuFooter {
-    display: none;
-}
-/*flex brand y menu toggle*/
-.brand {
-    color:white;
+/*flex brand */
+header .navBarMobile .brand {
     display: inline-block;
-    width: 25%;
-    position: relative;
-    left: 30px;
-    top: 30px;
-    font-family: sans-serif;
-    font-size: 18px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+
+header .navBarMobile .brand img {
+    width: 120px;
 }
 
 /*Menu toggle*/
@@ -42,18 +55,16 @@ nav {
     height: 30px;
     margin-left: auto;
     padding: 12px;
-    background-color: black;
-    
-    
+    background-color: #EAE6E5;
 }
 
 #toggle div {
     width: 100%;
     height: 5px;
-    background: white;
+    background: #12130F;
     margin: 4px auto;
     transition: all 0.3s ease-in-out;
-    backface-visibility:hidden;
+    backface-visibility: hidden;
     z-index: 9999;
     position: sticky;
 }
@@ -69,104 +80,148 @@ nav {
 #toggle.on .three {
     transform: rotate(-45deg) translate(7px, -8px);
 }
+
+.itemMenuFooter {
+    display: none;
+}
+
 /* estilos MENÚ CELULAR*/
 
-#menu {
-    background-color:rgba(0, 0,0, 0.3);
-    color: white;
+
+header .navBarMobile .menuCelu {
+    background-color: #EAE6E5;
+
     width: 100%;
-    height: 50vh;
+    height: 70vh;
     padding: 10px;
-    font-family: sans-serif;
-    line-height: 100px;
+
+    line-height: 70px;
     text-align: left;
+
     margin: auto;
     display: none;
     z-index: 99999;
+    
 }
 
-.menuCelu {
-    display: flex;
-    flex-direction: column;
-    position:sticky;
-        
-}
-
-.itemMenuCelu {
+header .navBarMobile .menuCelu .itemMenuCelu {
+    font-family: 'Playfair Display', serif;
     text-decoration: none;
-    font-size: 20px;
-    color: white;
+    font-size: 18px;
+    color: #12130F;
 }
 
-.itemMenuCelu:hover {
+header .navBarMobile .menuCelu .itemMenuCelu:hover {
     color: grey;
-    font-size: 22px;
+    border-bottom: 2px solid #89023E;
     transition: 0.4s ease-in-out;
 }
 
+header .navBarMobile .menuCelu .socialMedia {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: end;
+}
+
+header .navBarMobile .menuCelu .socialMedia a {
+    color: #12130F;
+    text-decoration: none;
+}
+
+header .navBarMobile .menuCelu .socialMedia a:hover {
+    font-size: 20px;
+    transition: .3s ease-in-out;
+}
 
 section {
     height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 50px;
+    color: #BBB5BD;
 }
 
 .seccionPrimera {
-    background-color: red;
+    background-color: #909CC2;
+
 }
 
 .seccionSegunda {
-    background-color: blueviolet;
+    background-color: #478978;
 }
 
 .seccionTercera {
-    background-color: yellow;
+    background-color: #F58A07;
 }
 
 .seccionCuarta {
-    background-color: green;
+    background-color: #DA4167;
 }
 
 .seccionQuinta {
-    background-color: orange;
+    background-color: #083D77;
 }
 
-@media only screen and (min-width: 768px) {
-    #toggle {
-        display: none;
-    }
-    .brand {
+/* Entre 992px y 1199px */
+/* Bootstrap breakpoints LG y superiores */
+@media (min-width: 992px) {
+
+    header .navBarMobile {
         display: none;
     }
 
-    nav {
-        background-color: black;
-        height: 40px;
-        text-align: center;
+    .navBar .brand img {
+        width: 150px;
+    }
+
+    header .navBar {
+        /* organización del contenido */
         display: flex;
-        justify-content: space-evenly;
-        padding-bottom: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        position: fixed;
+        top: 0;
+        /* Coloca el navBar en la parte superior de la ventana */
+        width: 100%;
+        z-index: 1000;
+        /* Asegura que esté por encima de otros elementos */
+
+        /* estilos del contenido */
+        background-color: #EAE6E5;
+        height: 80px;
     }
 
-    nav a {
-        padding-top: 20px;
-        padding-bottom: 20px;
+    header .navBar .itemsNavBar {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 10px;
+
+    }
+
+    header .navBar .itemsNavBar .itemMenu {
+
+        padding-top: 10px;
         text-decoration: none;
-        color: white;
-    }
-
-    .itemMenu {
+        color: #12130F;
         display: inline;
-        font-family: sans-serif;
-        font-size: 20px;
+        font-family: 'Playfair Display', serif;
+        font-size: 18px;
+        position: relative;
     }
 
-    .itemMenuFooter {
-        display: inline;
-    }
-
-    .itemMenu:hover {
+    header .navBar .itemsNavBar .itemMenu:hover {
         color: grey;
-        font-size: 19px;
-        transition: 0.4s ease-in-out;
+        border-bottom: 2px solid #89023E;
+        /* Añade una línea debajo en el estado de hover */
     }
-    
+
 }
