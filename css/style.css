@@ -37,12 +37,12 @@ header .navBar {
 }
 
 header .navBarMobile {
-    background-color: #EAE6E5;
+    background-color: #F0F3FF;
     position: fixed;
     width: 100%;
     top: 0;
     height: 60px;
-    }
+}
 
 /*flex brand */
 header .navBarMobile .brand {
@@ -53,7 +53,7 @@ header .navBarMobile .brand {
 }
 
 header .navBarMobile .brand img {
-    width: 120px;
+    width: 50px;
 }
 
 /*Menu toggle*/
@@ -62,13 +62,14 @@ header .navBarMobile .brand img {
     height: 30px;
     margin-left: auto;
     padding: 12px;
-    background-color: #EAE6E5;
+    background-color: #F0F3FF;
 }
 
 #toggle div {
     width: 100%;
-    height: 5px;
-    background: #12130F;
+    height: 4px;
+    border-radius: 5px;
+    background: #211951;
     margin: 4px auto;
     transition: all 0.3s ease-in-out;
     backface-visibility: hidden;
@@ -76,8 +77,16 @@ header .navBarMobile .brand img {
     position: sticky;
 }
 
+#toggle .one, #toggle .three {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
 #toggle.on .one {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(4px, 4px);
+    width: 100%;
 }
 
 #toggle.on .two {
@@ -86,6 +95,7 @@ header .navBarMobile .brand img {
 
 #toggle.on .three {
     transform: rotate(-45deg) translate(7px, -8px);
+    width: 100%;
 }
 
 .itemMenuFooter {
@@ -96,7 +106,7 @@ header .navBarMobile .brand img {
 
 
 header .navBarMobile .menuCelu {
-    background-color: #EAE6E5;
+    background-color: #F0F3FF;
 
     width: 100%;
     height: 70vh;
@@ -108,21 +118,20 @@ header .navBarMobile .menuCelu {
     margin: auto;
     display: none;
     z-index: 99999;
-    
+
 }
 
 header .navBarMobile .menuCelu .itemMenuCelu {
     font-family: "Raleway", sans-serif;
     text-decoration: none;
     font-size: 18px;
-    color: #12130F;
+    color: #211951;
 }
 
 header .navBarMobile .menuCelu .itemMenuCelu:hover {
-    color: grey;
-    border-bottom: 2px solid #89023E;
+    border-bottom: 2px solid #211951;
     margin-top: 1px;
-    }
+}
 
 header .navBarMobile .menuCelu .socialMedia {
     display: flex;
@@ -149,28 +158,28 @@ section {
     align-items: center;
     font-family: "Space Grotesk", sans-serif;
     font-size: 50px;
-    color: #BBB5BD;
+    color: #F2F0FD;
 }
 
 .seccionPrimera {
-    background-color: #909CC2;
+    background-color: #5B43F1;
 
 }
 
 .seccionSegunda {
-    background-color: #478978;
+    background-color: #3E24DE;
 }
 
 .seccionTercera {
-    background-color: #F58A07;
+    background-color: #3B27B1;
 }
 
 .seccionCuarta {
-    background-color: #DA4167;
+    background-color: #37298D;
 }
 
 .seccionQuinta {
-    background-color: #083D77;
+    background-color: #332971;
 }
 
 /* Entre 992px y 1199px */
@@ -182,7 +191,8 @@ section {
     }
 
     .navBar .brand img {
-        width: 150px;
+        padding-left: 20px;
+        width: 100px;
     }
 
     header .navBar {
@@ -191,17 +201,24 @@ section {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-
-        position: fixed;
-        top: 0;
         /* Coloca el navBar en la parte superior de la ventana */
         width: 100%;
-        z-index: 1000;
-        /* Asegura que esté por encima de otros elementos */
 
         /* estilos del contenido */
-        background-color: #EAE6E5;
-        height: 80px;
+        background-color: #F0F3FF;
+        height: 50px;
+    }
+
+    header .navBar.fixed {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        right: 0;
+        background-color: #15F5BA;
+        z-index: 4444;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        animation: slideDown 0.7s ease;
+        backdrop-filter: blur(10px);
     }
 
     header .navBar .itemsNavBar {
@@ -210,29 +227,44 @@ section {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding-right: 10px;
+        padding-right: 20px;
 
     }
 
     header .navBar .itemsNavBar .itemMenu {
-
-        padding-top: 10px;
         text-decoration: none;
-        color: #12130F;
+        color: #211951;
         display: inline;
         font-family: "Raleway", sans-serif;
         font-weight: 500;
         letter-spacing: 2px;
-        font-size: 16px;
-        position: relative;
+        font-size: 15px;
+        ;
+    }
+
+    header .navBar.fixed .itemMenu {
+        color: #211951;
+        font-weight: 600;
     }
 
     header .navBar .itemsNavBar .itemMenu:hover {
-        color: grey;
-        border-bottom: 2px solid #89023E;
+        border-bottom: 2px solid #211951;
         margin-top: 1px;
-        
         /* Añade una línea debajo en el estado de hover */
     }
 
+    header .navBar .itemsNavBar .itemMenu a:focus {
+        border-bottom: 2px solid #211951;
+    }
+
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
