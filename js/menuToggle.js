@@ -9,12 +9,8 @@ toggleButton.addEventListener("click", function () {
     // Obtén el elemento con el id "menu"
     let menu = document.getElementById("menu");
 
-    // Alternar la visibilidad del menú
-    if (menu.style.display === "none" || menu.style.display === "") {
-        menu.style.display = "block";
-    } else {
-        menu.style.display = "none";
-    }
+    // Alternar la visibilidad del menú con transición usando la clase
+    menu.classList.toggle("visible");
 });
 
 // Obtén todos los elementos con la clase "itemMenuCelu"
@@ -26,8 +22,8 @@ menuItems.forEach(item => {
         // Obtén el elemento con el id "menu"
         let menu = document.getElementById("menu");
 
-        // Cierra el menú
-        menu.style.display = "none";
+        // Cierra el menú con transición
+        menu.classList.remove("visible");
 
         // Asegúrate de quitar la clase "on" si es necesario
         if (toggleButton.classList.contains("on")) {
@@ -39,7 +35,7 @@ menuItems.forEach(item => {
 window.addEventListener('keydown', (event) => {
     let menu = document.getElementById('menu');
     if (event.code === 'Escape') {
-        menu.style.display = "none";
+        menu.classList.remove("visible");
         toggleButton.classList.remove("on")
     }
   });

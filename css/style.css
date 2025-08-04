@@ -127,9 +127,20 @@ header .navBarMobile .menuCelu {
     text-align: left;
 
     margin: auto;
-    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     z-index: 99999;
+}
 
+header .navBarMobile .menuCelu.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
 }
 
 header .navBarMobile .menuCelu .itemMenuCelu {
